@@ -4,7 +4,7 @@ Implementare 2048 by Mirescu Andreea Alexandra|
 Instalare ncurses:
 sudo apt-get install ncurses-dev
 
-Jocul se ponrneste ruland executabilul (./2048) dupa ce s-a dat comanda make (sau make build) pentru obtinerea acestuia.
+Jocul se porneste ruland executabilul (./2048) dupa ce s-a dat comanda make (sau make build) pentru obtinerea acestuia.
 
 Marime recomandata a terminalului:
 tput cols -> 78
