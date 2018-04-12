@@ -279,11 +279,11 @@ int reverseNotEmptyColumn(int b[][4], int k, int j) {
 
 //Permutarea celulelor in stanga.
 void permLineToLeft(int b[][4], int line, int col) {
-    int j;
+	int j;
 	for(j = col ; j < 3 ; j++) {
 		b[line][j] = b[line][j + 1];
-    }
-    b[line][3] = 0;
+	}
+	b[line][3] = 0;
 }
 
 //Permutarea celulelor in dreapta.
@@ -503,20 +503,20 @@ int whichIsBestMove(int b[][4]) {
 			aux4[i][j] = b[i][j];
 		}
 	move[0] = moveOnTop(aux1);
-    nrfcells[0] = sumOnTop(aux1, &score2);
-    move[0] = move[0] + moveOnTop(aux1);
+	nrfcells[0] = sumOnTop(aux1, &score2);
+	move[0] = move[0] + moveOnTop(aux1);
 
 	move[1] = moveOnBottom(aux2);
-    nrfcells[1] = sumOnBottom(aux2, &score2);
-    move[1] = move[1] + moveOnBottom(aux2);
+	nrfcells[1] = sumOnBottom(aux2, &score2);
+	move[1] = move[1] + moveOnBottom(aux2);
 
 	move[2] = moveToLeft(aux3);
-    nrfcells[2] = sumOnLeft(aux3, &score2);
-    move[2] = move[2] + moveToLeft(aux3);
+	nrfcells[2] = sumOnLeft(aux3, &score2);
+	move[2] = move[2] + moveToLeft(aux3);
 
 	move[3] = moveToRight(aux4);
-    nrfcells[3] = sumOnRight(aux4, &score2);
-    move[3]= move[3] + moveToRight(aux4);
+	nrfcells[3] = sumOnRight(aux4, &score2);
+	move[3]= move[3] + moveToRight(aux4);
 
 	max = nrfcells[0];
 	which = 1;
@@ -555,20 +555,20 @@ int checkGameOver(int b[][4]) {
 			aux4[i][j] = b[i][j];
 		}
 	move[0] = moveOnTop(aux1);
-    sumOnTop(aux1, &score2);
-    move[0] = move[0] + moveOnTop(aux1);
+	sumOnTop(aux1, &score2);
+	move[0] = move[0] + moveOnTop(aux1);
 
 	move[1] = moveOnBottom(aux2);
-    sumOnBottom(aux2, &score2);
-    move[1] = move[1] + moveOnBottom(aux2);
+	sumOnBottom(aux2, &score2);
+	move[1] = move[1] + moveOnBottom(aux2);
 
 	move[2] = moveToLeft(aux3);
-    sumOnLeft(aux3, &score2);
-    move[2] = move[2] + moveToLeft(aux3);
+	sumOnLeft(aux3, &score2);
+	move[2] = move[2] + moveToLeft(aux3);
 
 	move[3] = moveToRight(aux4);
-    sumOnRight(aux4, &score2);
-    move[3]= move[3] + moveToRight(aux4);
+	sumOnRight(aux4, &score2);
+	move[3]= move[3] + moveToRight(aux4);
 
 	if((move[0] == 0) && (move[1] == 0) && (move[2] == 0) && (move[3] == 0))
 		return 1;
@@ -844,7 +844,7 @@ int printHighscores() {
 int startGame(int b[][4], int *exist, int *score, int aux[][4], int *scoreaux) {	
 	int c, a, cond;				
 	initBoard(b);
-    printBoard(b);
+	printBoard(b);
 	(*score) = 0;
 	mvprintw(18, 33, "Score: %d", (*score));
 	controls();
@@ -854,37 +854,37 @@ int startGame(int b[][4], int *exist, int *score, int aux[][4], int *scoreaux) {
 	//Preluarea inputului de la user (sagetile).
 	//Va fi ERR in cazul time-outului, astfel
 	//se va executa miscarea automata dupa 12 secunde de inactivitate.
-    while((c = getch()) != 'q') {		
-            int moves = 0, sums = 0;
-            switch(c) {
-            case KEY_UP:
+	while((c = getch()) != 'q') {		
+		int moves = 0, sums = 0;
+			switch(c) {
+			case KEY_UP:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveOnTop(b);
-                sums = sumOnTop(b, score);
-                moveOnTop(b);
-                break;
-            case KEY_DOWN:
+				moves = moveOnTop(b);
+				sums = sumOnTop(b, score);
+				moveOnTop(b);
+				break;
+			case KEY_DOWN:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveOnBottom(b);
-                sums = sumOnBottom(b, score);
-                moveOnBottom(b);
-                break;
-            case KEY_LEFT:
+				moves = moveOnBottom(b);
+				sums = sumOnBottom(b, score);
+				moveOnBottom(b);
+				break;
+			case KEY_LEFT:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveToLeft(b);
-                sums = sumOnLeft(b, score);
-                moveToLeft(b);
-                break;
-            case KEY_RIGHT:
+				moves = moveToLeft(b);
+				sums = sumOnLeft(b, score);
+				moveToLeft(b);
+				break;
+			case KEY_RIGHT:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveToRight(b);
-                sums = sumOnRight(b, score);
-                moveToRight(b);
-                break;
+				moves = moveToRight(b);
+				sums = sumOnRight(b, score);
+				moveToRight(b);
+				break;
 			case ERR:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
@@ -892,24 +892,24 @@ int startGame(int b[][4], int *exist, int *score, int aux[][4], int *scoreaux) {
 				switch(a) {
 					case 1:
 						moves = moveOnTop(b);
-                		sums = sumOnTop(b, score);
-                		moveOnTop(b);
-                		break;
+						sums = sumOnTop(b, score);
+						moveOnTop(b);
+						break;
 					case 2:
 						moves = moveOnBottom(b);
-                		sums = sumOnBottom(b, score);
-                		moveOnBottom(b);
+						sums = sumOnBottom(b, score);
+						moveOnBottom(b);
 						break;
 					case 3:
-                		moves = moveToLeft(b);
-                		sums = sumOnLeft(b, score);
-                		moveToLeft(b);
-                		break;
+						moves = moveToLeft(b);
+						sums = sumOnLeft(b, score);
+						moveToLeft(b);
+						break;
 					case 4:
 						moves = moveToRight(b);
-                		sums = sumOnRight(b, score);
-                		moveToRight(b);
-                		break;
+						sums = sumOnRight(b, score);
+						moveToRight(b);
+						break;
 				}
 				break;
 			case 'a':
@@ -919,24 +919,24 @@ int startGame(int b[][4], int *exist, int *score, int aux[][4], int *scoreaux) {
 				switch(a) {
 					case 1:
 						moves = moveOnTop(b);
-                		sums = sumOnTop(b, score);
-                		moveOnTop(b);
-                		break;
+						sums = sumOnTop(b, score);
+						moveOnTop(b);
+						break;
 					case 2:
 						moves = moveOnBottom(b);
-                		sums = sumOnBottom(b, score);
-                		moveOnBottom(b);
+						sums = sumOnBottom(b, score);
+						moveOnBottom(b);
 						break;
 					case 3:
-                		moves = moveToLeft(b);
-                		sums = sumOnLeft(b, score);
-                		moveToLeft(b);
-                		break;
+						moves = moveToLeft(b);
+						sums = sumOnLeft(b, score);
+						moveToLeft(b);
+						break;
 					case 4:
 						moves = moveToRight(b);
-                		sums = sumOnRight(b, score);
-                		moveToRight(b);
-                		break;
+						sums = sumOnRight(b, score);
+						moveToRight(b);
+						break;
 				}
 				break;
 			case 'u':
@@ -951,10 +951,10 @@ int startGame(int b[][4], int *exist, int *score, int aux[][4], int *scoreaux) {
 					(*exist) = 1;
 				}
 				break;
-            }
-            if(moves > 0 || sums > 0) {
-                addRandomValue(b);
-            	printBoard(b);
+			}
+			if(moves > 0 || sums > 0) {
+				addRandomValue(b);
+				printBoard(b);
 				mvprintw(18, 33, "Score: %d", (*score));
 				controls();
 				timer();
@@ -972,7 +972,7 @@ int startGame(int b[][4], int *exist, int *score, int aux[][4], int *scoreaux) {
 					cond = 0;
 					(*exist) = 0;
 					return 1;
-    			}
+				}
 	
 	}
 	return 0;
@@ -990,36 +990,36 @@ int continueGame(int b[][4], int *exist,int *score,int aux[][4],int *scoreaux) {
 	refresh();
 	timeout(12000);
 	while((c = getch()) != 'q') {
-            int moves = 0, sums = 0;
-            switch(c) {
-            case KEY_UP:
+			int moves = 0, sums = 0;
+			switch(c) {
+			case KEY_UP:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveOnTop(b);
-                sums = sumOnTop(b, score);
-                moveOnTop(b);
-                break;
-            case KEY_DOWN:
+				moves = moveOnTop(b);
+				sums = sumOnTop(b, score);
+				moveOnTop(b);
+				break;
+			case KEY_DOWN:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveOnBottom(b);
-                sums = sumOnBottom(b, score);
-                moveOnBottom(b);
-                break;
-            case KEY_LEFT:
+				moves = moveOnBottom(b);
+				sums = sumOnBottom(b, score);
+				moveOnBottom(b);
+				break;
+			case KEY_LEFT:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveToLeft(b);
-                sums = sumOnLeft(b, score);
-                moveToLeft(b);
-                break;
-            case KEY_RIGHT:
+				moves = moveToLeft(b);
+				sums = sumOnLeft(b, score);
+				moveToLeft(b);
+				break;
+			case KEY_RIGHT:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
-                moves = moveToRight(b);
-                sums = sumOnRight(b, score);
-                moveToRight(b);
-                break;
+				moves = moveToRight(b);
+				sums = sumOnRight(b, score);
+				moveToRight(b);
+				break;
 			case ERR:
 				saveBoard(b, aux);
 				(*scoreaux) = (*score);
@@ -1027,24 +1027,24 @@ int continueGame(int b[][4], int *exist,int *score,int aux[][4],int *scoreaux) {
 				switch(a) {
 					case 1:
 						moves = moveOnTop(b);
-                		sums = sumOnTop(b, score);
-                		moveOnTop(b);
-                		break;
+						sums = sumOnTop(b, score);
+						moveOnTop(b);
+						break;
 					case 2:
 						moves = moveOnBottom(b);
-                		sums = sumOnBottom(b, score);
-                		moveOnBottom(b);
+						sums = sumOnBottom(b, score);
+						moveOnBottom(b);
 						break;
 					case 3:
-                		moves = moveToLeft(b);
-                		sums = sumOnLeft(b, score);
-                		moveToLeft(b);
-                		break;
+						moves = moveToLeft(b);
+						sums = sumOnLeft(b, score);
+						moveToLeft(b);
+						break;
 					case 4:
 						moves = moveToRight(b);
-                		sums = sumOnRight(b, score);
-                		moveToRight(b);
-                		break;
+						sums = sumOnRight(b, score);
+						moveToRight(b);
+						break;
 				}
 				break;
 			case 'a':
@@ -1054,24 +1054,24 @@ int continueGame(int b[][4], int *exist,int *score,int aux[][4],int *scoreaux) {
 				switch(a) {
 					case 1:
 						moves = moveOnTop(b);
-                		sums = sumOnTop(b, score);
-                		moveOnTop(b);
-                		break;
+						sums = sumOnTop(b, score);
+						moveOnTop(b);
+						break;
 					case 2:
 						moves = moveOnBottom(b);
-                		sums = sumOnBottom(b, score);
-                		moveOnBottom(b);
+						sums = sumOnBottom(b, score);
+						moveOnBottom(b);
 						break;
 					case 3:
-                		moves = moveToLeft(b);
-                		sums = sumOnLeft(b, score);
-                		moveToLeft(b);
-                		break;
+						moves = moveToLeft(b);
+						sums = sumOnLeft(b, score);
+						moveToLeft(b);
+						break;
 					case 4:
 						moves = moveToRight(b);
-                		sums = sumOnRight(b, score);
-                		moveToRight(b);
-                		break;
+						sums = sumOnRight(b, score);
+						moveToRight(b);
+						break;
 				}
 				break;
 			case 'u':
@@ -1086,10 +1086,10 @@ int continueGame(int b[][4], int *exist,int *score,int aux[][4],int *scoreaux) {
 					(*exist) = 1;
 				}
 				break;
-            }
-            if(moves > 0 || sums > 0) {
-                addRandomValue(b);
-            	printBoard(b);
+			}
+			if(moves > 0 || sums > 0) {
+				addRandomValue(b);
+				printBoard(b);
 				mvprintw(18, 33, "Score: %d", (*score));
 				controls();
 				timer();
@@ -1105,8 +1105,8 @@ int continueGame(int b[][4], int *exist,int *score,int aux[][4],int *scoreaux) {
 					cond = 0;
 					(*exist) = 0;
 					return 1;
-    			}
-    }
+				}
+	}
 	return 0;
 }
 
